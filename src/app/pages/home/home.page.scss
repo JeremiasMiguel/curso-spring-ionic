@@ -34,10 +34,12 @@ ion-item{
 .bt-entrar{
     --background: #020122;
     --border-radius: 20px;
+    font-family: 'montserrat-regular';
 }
 .bt-registrar {
     --background: #FC9E4F;
     --border-radius: 20px;
+    font-family: 'montserrat-regular';
 }
 
 ion-icon {
@@ -48,4 +50,5 @@ p {
     font-weight: bold;
     text-align: center;
     color: #020122;
+    font-family: 'montserrat-regular';
 }
