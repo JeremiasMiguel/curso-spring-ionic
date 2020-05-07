@@ -1,0 +1,51 @@
+.image {
+    width: 170px;
+    align-self: center;
+    margin: auto;
+    display: block;
+    padding: 1px;
+}
+
+.title {
+    font-family: 'title';
+    font-size: 80px;
+    line-height: 0em;
+    text-align: center;
+    color: #020122;
+}
+
+.text-input {
+    text-align: center;
+    font-weight: bold;
+}
+
+.text-input::-webkit-input-placeholder {
+    text-align: center;
+}
+
+ion-content {
+    --background: linear-gradient(#F2F3AE, #FF521B);
+}
+
+ion-item{
+    --background: transparent;
+    --color: #020122;
+}
+.bt-entrar{
+    --background: #020122;
+    --border-radius: 20px;
+}
+.bt-registrar {
+    --background: #FC9E4F;
+    --border-radius: 20px;
+}
+
+ion-icon {
+    color: #020122;
+}
+
+p {
+    font-weight: bold;
+    text-align: center;
+    color: #020122;
+}

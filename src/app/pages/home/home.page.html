@@ -1,12 +1,40 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>home</ion-title>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content>
 
+  <div padding>
+    <p class="title">
+      KIWI
+    </p>
+  </div>
+
+  <div padding class="image">
+    <img src="../../../assets/icon/kiwi.svg" />
+  </div>
+
+  <form>
+    <ion-grid>
+      <ion-row color="primary" justify-content-center>
+        <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+          <div padding>
+            <ion-item>
+              <ion-icon name="mail-outline"></ion-icon>
+              <ion-input class="text-input" name="email" type="email" required></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-icon name="key-outline"></ion-icon>
+              <ion-input class="text-input" name="password" type="password" required></ion-input>
+            </ion-item>
+          </div>
+          <div padding>
+            <ion-button class="bt-entrar" type="submit" expand="block">Entrar</ion-button>
+          </div>
+          <div padding>
+            <ion-button class="bt-registrar" expand="block">Registrar</ion-button>
+          </div>
+          <div padding>
+            <p>Esqueceu a senha?</p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
 </ion-content>

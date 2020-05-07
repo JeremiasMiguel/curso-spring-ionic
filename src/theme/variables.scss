@@ -226,3 +226,35 @@
     --ion-tab-bar-background: #1f1f1f;
   }
 }
+
+/*
+  FONTS
+*/
+@font-face {
+  font-family: 'title';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../assets/fonts/title.ttf');
+}
+
+@font-face {
+  font-family: 'montserrat-bold';
+  font-style: normal;
+  font-weight: bold;
+  src: url('../assets/fonts/montserrat-bold.ttf');
+}
+
+@font-face {
+  font-family: 'montserrat-regular';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../assets/fonts/montserrat-regular.ttf');
+}
+
+.button-different {
+  background-color: pink !important;
+}
+
+.background-wallpaper {
+  background-image: linear-gradient(white, blue) !important;
+}

@@ -44,17 +44,17 @@ export class AppComponent implements OnInit {
       {
         title : "Profile",
         url   : "/profile",
-        icon  : "chatboxes"
+        icon  : "person-circle-outline"
       },
       {
         title : "Categories",
         url   : "/categories",
-        icon  : "contacts"
+        icon  : "file-tray-stacked-outline"
       },
       {
         title : "Cart",
         url   : "/cart",
-        icon  : "contacts"
+        icon  : "cart-outline"
       }
     ]
   }
