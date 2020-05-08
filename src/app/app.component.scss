@@ -117,3 +117,18 @@ ion-note {
 ion-item.selected {
   --color: var(--ion-color-primary);
 }
+
+.text {
+  font-family: 'montserrat-regular';
+  text-align: center;
+}
+
+.text-menu {
+  font-family: 'montserrat-regular';
+  text-align: center;
+  --color: white;
+}
+
+ion-toolbar {
+  --background: #020122;
+}

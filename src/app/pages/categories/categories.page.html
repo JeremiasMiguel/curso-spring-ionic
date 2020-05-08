@@ -1,12 +1,19 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>categories</ion-title>
+    <ion-title class="text">Categories</ion-title>
     <ion-buttons slot="start">
-      <ion-back-button></ion-back-button>
+      <ion-menu-button></ion-menu-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
+  <ion-card>
+    <ion-item *ngFor="let cat of categories">
+      <img class="image" src="{{bucketURL}}/cat{{cat.id}}.jpg" />
+        <ion-card-title class="text">{{ cat.nome }}</ion-card-title>
+        <ion-button fill="clear" slot="end">Detalhes</ion-button>
+    </ion-item>
+  </ion-card>
 </ion-content>
