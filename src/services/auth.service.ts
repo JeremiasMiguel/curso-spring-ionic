@@ -2,11 +2,13 @@ import { CredenciaisDTO } from 'src/models/credenciais.dto';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { APIConfig } from 'src/config/api.config';
+import { LocalUser } from 'src/models/local_user';
+import { StorageService } from './storage.service';
 
 @Injectable()
 export class AuthService {
 
-    constructor(public http: HttpClient) {
+    constructor(public http: HttpClient, public storageService: StorageService) {
 
     }
 
@@ -16,6 +18,19 @@ export class AuthService {
     // responseType: 'text' -> Faz com que o framework não faça um parse no json, causando um erro
     authenticate(creds: CredenciaisDTO) {
         return this.http.post(`${APIConfig.baseURL}/login`, creds, { observe: 'response', responseType: 'text'});
+    }
+
+    // Verifica se o login foi efetuado com sucesso, buscando o bearer token
+    successfulLogin(authorizationValue: string) {
+        let tokenAux = authorizationValue.substring(7);
+        let user: LocalUser = {
+            token: tokenAux
+        };
+        this.storageService.setLocalUser(user);
+    }
+
+    logout() {
+        this.storageService.setLocalUser(null);
     }
 
 }

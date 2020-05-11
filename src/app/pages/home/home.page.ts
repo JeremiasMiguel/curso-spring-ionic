@@ -16,7 +16,7 @@ export class HomePage implements OnInit {
     senha: ''
   };
 
-  constructor(public router: Router, public menu: MenuController, public auth: AuthService) { }
+  constructor(public router: Router, public menu: MenuController, public authService: AuthService) { }
 
   ngOnInit() {
   }
@@ -30,8 +30,8 @@ export class HomePage implements OnInit {
   }
 
   login() {
-    this.auth.authenticate(this.creds).subscribe(response => {
-      console.log(response.headers.get('Authorization'));
+    this.authService.authenticate(this.creds).subscribe(response => {
+      this.authService.successfulLogin(response.headers.get('Authorization'));
       this.router.navigateByUrl('/categories');
     },
     error => {});
