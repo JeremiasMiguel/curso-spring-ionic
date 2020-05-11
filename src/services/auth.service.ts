@@ -4,9 +4,13 @@ import { HttpClient } from '@angular/common/http';
 import { APIConfig } from 'src/config/api.config';
 import { LocalUser } from 'src/models/local_user';
 import { StorageService } from './storage.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable()
 export class AuthService {
+
+    // Manipula token JWT -> Auxilia a buscar o email a partir do token Bearer
+    jwtHelperService: JwtHelperService = new JwtHelperService();
 
     constructor(public http: HttpClient, public storageService: StorageService) {
 
@@ -24,7 +28,8 @@ export class AuthService {
     successfulLogin(authorizationValue: string) {
         let tokenAux = authorizationValue.substring(7);
         let user: LocalUser = {
-            token: tokenAux
+            token: tokenAux,
+            email: this.jwtHelperService.decodeToken(tokenAux).sub
         };
         this.storageService.setLocalUser(user);
     }
