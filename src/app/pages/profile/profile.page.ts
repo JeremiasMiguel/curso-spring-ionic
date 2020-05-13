@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { StorageService } from 'src/services/storage.service';
+import { ClienteDTO } from 'src/models/cliente.dto';
+import { ClienteService } from 'src/services/domain/cliente.service';
+import { APIConfig } from 'src/config/api.config';
 
 @Component({
   selector: 'app-profile',
@@ -8,21 +11,30 @@ import { StorageService } from 'src/services/storage.service';
 })
 export class ProfilePage implements OnInit {
 
-  email: string;
+  cliente: ClienteDTO;
 
-  constructor(public storage: StorageService) {
+  constructor(public storage: StorageService, public clienteService: ClienteService) {
     
   }
 
   ngOnInit() {
     let localUser = this.storage.getLocalUser();
     if (localUser && localUser.email) {
-      this.email = localUser.email;
+      this.clienteService.findByEmail(localUser.email).subscribe(response => {
+        this.cliente = response;
+        this.getImageIfExists();
+      },
+      error => {});
     }
   }
 
-  ionViewDidLoad() {
-  
+  getImageIfExists() {
+    this.clienteService.getImageFromBucket(this.cliente.id).subscribe(response => {
+      this.cliente.imageUrl = `${APIConfig.bucketBaseURL}/cp${this.cliente.id}.jpg`;
+    },
+    error => {});
   }
+
+  
 
 }

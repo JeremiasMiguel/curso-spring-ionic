@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Perfil</ion-title>
+    <ion-title>Profile</ion-title>
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -8,5 +8,13 @@
 </ion-header>
 
 <ion-content>
-  <p>{{ email }}</p>
+  <div class="card">
+    <ion-card>
+      <img [src]="cliente?.imageUrl || 'assets/icon/avatar-blank.jpg'" />
+      <ion-card-header>
+        <ion-card-title class="text">{{ cliente?.nome }}</ion-card-title>
+        <ion-card-subtitle class="text">{{ cliente?.email }}</ion-card-subtitle>
+      </ion-card-header>
+    </ion-card>
+  </div>
 </ion-content>

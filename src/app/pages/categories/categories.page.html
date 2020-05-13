@@ -9,11 +9,12 @@
 
 <ion-content>
 
-  <ion-card>
-    <ion-item *ngFor="let cat of categories">
-      <img class="image" src="{{bucketURL}}/cat{{cat.id}}.jpg" />
-        <ion-card-title class="text">{{ cat.nome }}</ion-card-title>
-        <ion-button fill="clear" slot="end">Detalhes</ion-button>
-    </ion-item>
-  </ion-card>
+  <div class="card">
+    <ion-card>
+      <ion-item *ngFor="let cat of categories">
+        <img class="image" src="{{bucketURL}}/cat{{cat.id}}.jpg" />
+        <h3 class="text">{{ cat.nome }}</h3>
+      </ion-item>
+    </ion-card>
+  </div>
 </ion-content>

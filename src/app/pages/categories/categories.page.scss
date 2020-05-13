@@ -15,13 +15,17 @@ ion-toolbar {
     --background: #020122;
 }
 
+.card {
+    text-align: center;
+}
+
 .text {
     font-family: 'montserrat-regular';
-    text-align: center;
 }
 
 
 .image {
     width: 70px;
     border-radius: 50%;
+    margin: 8px;
 }
