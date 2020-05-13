@@ -27,9 +27,10 @@ export class AuthService {
     // Verifica se o login foi efetuado com sucesso, buscando o bearer token
     successfulLogin(authorizationValue: string) {
         let tokenAux = authorizationValue.substring(7);
+        let emailAux = this.jwtHelperService.decodeToken(tokenAux).sub;
         let user: LocalUser = {
             token: tokenAux,
-            email: this.jwtHelperService.decodeToken(tokenAux).sub
+            email: emailAux
         };
         this.storageService.setLocalUser(user);
     }

@@ -37,11 +37,6 @@ export class AppComponent implements OnInit {
     this.navigate =
     [
       {
-        title : "Home",
-        url   : "/home",
-        icon  : "home"
-      },
-      {
         title : "Profile",
         url   : "/profile",
         icon  : "person-circle-outline"

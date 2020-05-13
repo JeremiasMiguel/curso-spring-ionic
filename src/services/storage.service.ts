@@ -7,12 +7,11 @@ export class StorageService {
 
     getLocalUser(): LocalUser {
         let user = localStorage.getItem(STORAGE_KEYS.localUser);
-
         if(user == null) {
             return null;
         } else {
             // transformando localStorage (string) em JSON para a classe local_user
-            JSON.parse(user);
+            return JSON.parse(user);
         }
     }
 
@@ -24,6 +23,7 @@ export class StorageService {
         else {
             // Convertendo a classe para String
             localStorage.setItem(STORAGE_KEYS.localUser, JSON.stringify(user));
+            let teste = localStorage.getItem(STORAGE_KEYS.localUser);
         }
     }
 
