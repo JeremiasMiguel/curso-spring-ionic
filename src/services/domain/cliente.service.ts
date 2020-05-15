@@ -14,14 +14,8 @@ export class ClienteService {
 
     // ?value -> Parâmetro definido como Value no backend
     findByEmail(email: string): Observable<ClienteDTO> {
-
-        let token = this.storageService.getLocalUser().token;
-        let authHeader = new HttpHeaders({'Authorization': 'Bearer ' + token});
-
-        // Com o segundo argumento, passa-se o cabeçalho na requisição
         return this.http.get<ClienteDTO>(
-            `${APIConfig.baseURL}/clientes/email?value=${email}`,
-            { 'headers': authHeader }
+            `${APIConfig.baseURL}/clientes/email?value=${email}`
         );
     }
 
