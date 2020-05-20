@@ -45,4 +45,8 @@ export class HomePage implements OnInit {
     error => {});
   }
 
+  signup() {
+    this.router.navigateByUrl('/signup');
+  }
+
 }

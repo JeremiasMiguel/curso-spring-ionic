@@ -1,0 +1,34 @@
+ion-content {
+    --background: linear-gradient(#F2F3AE, #FF521B);
+}
+
+ion-menu-button {
+    --color: white;
+}
+
+ion-toolbar {
+    --background: #020122;
+}
+
+ion-title {
+    --color: white;
+}
+
+ion-item{
+    --background: transparent;
+    --color: #020122;
+}
+
+.text {
+    font-family: 'montserrat-regular';
+}
+
+.button {
+    --background: #020122;
+    --border-radius: 20px;
+    font-family: 'montserrat-regular';
+}
+
+.back {
+    color: white;
+}
