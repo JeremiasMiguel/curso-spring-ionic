@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { AuthService } from 'src/services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -15,7 +17,9 @@ export class AppComponent implements OnInit {
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private auth: AuthService,
+    private router: Router
   ) {
     this.initializeApp();
 
@@ -30,7 +34,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-  
+    
   }
 
   sidemenu() {
@@ -50,7 +54,30 @@ export class AppComponent implements OnInit {
         title : "Cart",
         url   : "/cart",
         icon  : "cart-outline"
+      },
+      {
+        title : "Logout",
+        url   : "/logout",
+        icon  : "exit-outline"
       }
     ]
+  }
+
+  redirect(page: any) {
+
+    switch(page.title) {
+      case 'Logout':
+        this.sair();
+        break;
+      
+      default:
+        this.router.navigateByUrl(page.url);
+    }
+
+  }
+
+  sair() {
+    this.auth.logout();
+    this.router.navigateByUrl('/home');
   }
 }
