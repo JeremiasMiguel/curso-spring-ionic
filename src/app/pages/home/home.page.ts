@@ -29,6 +29,14 @@ export class HomePage implements OnInit {
     this.menu.swipeGesture(true);
   }
 
+  ionViewDidEnter() {
+    this.authService.refreshToken().subscribe(response => {
+      this.authService.successfulLogin(response.headers.get('Authorization'));
+      this.router.navigateByUrl('/categories');
+    },
+    error => {});
+  }
+
   login() {
     this.authService.authenticate(this.creds).subscribe(response => {
       this.authService.successfulLogin(response.headers.get('Authorization'));
